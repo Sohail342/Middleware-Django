@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, HttpResponse
 from .form import RegForm
 from .models import RegModel
 from django.contrib import messages
@@ -26,3 +26,7 @@ def formAPI(request):
     else:
         form = RegForm()
     return render(request, 'core/index.html', {'form':form})
+
+def about(request):
+    print("From View")
+    return HttpResponse("This is About Page")
