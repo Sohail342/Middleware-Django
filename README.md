@@ -33,11 +33,11 @@ Middleware is a way to process requests globally before they reach the view laye
     pip install -r requirements.txt
     ```
 
-4. **Add the middleware to your Django project settings:**
+4. **Add the middleware to your Django project settings:** (already added)
     ```bash
     MIDDLEWARE = [
     ...
-    'path.core.SiteUnderConstruction',
+    'core.middlewares.SiteUnderConstruction',
     ...
     ]
     ```
