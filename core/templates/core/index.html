@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FormAPI</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+</head>
+<style>
+    .success{
+        color:blue;
+    }
+</style>
+<body>
+
+    <div class="wrapper">
+        <div class="r_form_wrap">
+
+            <div class="title">
+                <p>Django FormAPI</p>
+            </div>
+
+            <div class="r_form">
+                {{form.non_field_errors}}
+                <form method="POST" novalidate>
+                    {% csrf_token %}
+                    <div class="input_wrap">
+                        {{ form.name.errors }}
+                        <div class="input_item">
+                            <span class="icon">
+                                <ion-icon name="person-sharp"></ion-icon>
+                            </span>
+                            {{form.name}}
+                        </div>
+                    </div>
+                    <div class="input_wrap">
+                        {{ form.email.errors }}
+                        <div class="input_item">
+                            <span class="icon">
+                                <ion-icon name="mail-sharp"></ion-icon>
+                            </span>
+                            {{form.email}}
+                        </div>
+                    </div>
+                    <div class="input_wrap">
+                        {{form.password.errors}}
+                        <div class="input_item">
+                            <span class="icon">
+                                <ion-icon name="key-sharp"></ion-icon>
+                            </span>
+                            {{form.password}}
+                        </div>
+                    </div>
+                    <div class="input_wrap">
+                        {{form.confirmPassword.errors}}
+                        <div class="input_item">
+                            <span class="icon">
+                                <ion-icon name="key-sharp"></ion-icon>
+                            </span>
+                            {{form.confirmPassword}}
+                        </div>
+                    </div>
+                    <div class="input_wrap">
+                        {{form.phone.errors}}
+                        <div class="input_item">
+                            <span class="icon">
+                                <ion-icon name="call-sharp"></ion-icon>
+                            </span>
+                            {{form.phone}}
+                        </div>
+                    </div>
+                    
+                    
+                    <input type="Submit" value="Register Now">
+                </form>
+                <div>
+                    {% if messages %} 
+                        {% for message in messages %} 
+                        <p {% if message.tags %} class="{{message.tags}} {% endif %}">{{message}}</p> 
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
